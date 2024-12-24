@@ -1,0 +1,82 @@
+#login {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-1.5rem);
+}
+
+#loginFormContainer {
+  width: max(300px, 40%);
+  padding: 1rem;
+  margin: 1.5rem;
+  border: 0px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 0.5rem;
+}
+
+/* Form styling */
+#loginForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 75%;
+  margin: auto;
+}
+
+#loginTextContainer {
+  margin-bottom: 1rem;
+}
+
+#loginTitle {
+  margin: 1rem 0;
+}
+
+#loginTitle > #steam > .wavy-line {
+  width: 1rem;
+  height: 0.65rem;
+  overflow: hidden;
+  margin: 0 auto 0 auto;
+}
+
+#loginTitle > #steam > .wavy-line:before {
+  content: attr(data-text);
+  position: relative;
+  top: -1rem;
+  color: rgba(242, 237, 237, 0);
+  width: calc(100% + 2rem);
+  font-size: 1rem;
+  font-weight: 900;
+  text-decoration-style: wavy;
+  text-decoration-color: #aa3131;
+  text-decoration-line: underline;
+  animation: animate 6s linear infinite;
+  -webkit-animation: animate 6s linear infinite;
+}
+
+#loginTitleContainer {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#loginWelcome {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.3rem;
+  margin-top: 1rem;
+}
+
+#loginText {
+  display: flex;
+  flex-direction: column;
+}
+
+#chefHat {
+  aspect-ratio: 1;
+  width: 110px;
+  transform: translateY(3rem);
+}

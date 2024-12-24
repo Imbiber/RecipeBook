@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Dancing+Script:wght@700&family=Kalnia:wght@500&family=League+Gothic&family=Libre+Baskerville&family=Merriweather:ital,wght@1,300&family=Pacifico&display=swap");
+
+#postBlog {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#postBlogTitle {
+  font-size: 1.5rem;
+  font-family: "Cabin Sketch", sans-serif;
+  font-family: "Dancing Script", cursive;
+  font-family: "Pacifico", cursive;
+}
+
+#blogPostFormContainer {
+  width: 85%;
+  padding: 1rem;
+  margin: 1.5rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+}
+
+#blogPostForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 85%;
+  margin: auto;
+}
+
+#file {
+  display: none;
+}
+
+.file-style {
+  font-family: "Trebuchet MS";
+  width: 50%;
+  height: 4.5rem;
+  display: block;
+  background-color: #f5f4f4;
+  margin: auto;
+  cursor: pointer;
+  text-align: center;
+  padding: 30px;
+  border-radius: 15px;
+  border: 2px dashed #cdc8c8;
+}

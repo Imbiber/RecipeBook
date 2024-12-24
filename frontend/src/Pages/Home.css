@@ -1,0 +1,122 @@
+.Home {
+  color: white;
+  /* Set the background image and specify its path */
+  background-color: rgb(26, 25, 25);
+  background-image: url("../images/background.jpg");
+
+  /* Ensure the background image covers the entire div */
+  background-size: cover;
+
+  /* Center the background image */
+  background-position: center;
+  background-attachment: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Make sure text is readable by adding a semi-transparent overlay */
+  position: relative;
+  color: white;
+  height: 70%;
+  flex: 1;
+}
+
+.Home::before {
+  /* Create a pseudo-element to act as the overlay */
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.1));
+}
+
+/* Optional: Add some padding and text styling */
+.content {
+  position: relative;
+  z-index: 1; /* Ensure content appears above the overlay */
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.headlineContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#headline {
+  font-size: 1.75rem;
+  position: relative;
+  font-weight: bold;
+  text-align: left;
+  z-index: 1;
+  color: #f6f5f1; /* Highlight color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  display: inline-block;
+  font-family: "Cabin Sketch", sans-serif;
+  font-family: "League Gothic", sans-serif;
+  font-family: "Libre Baskerville", serif;
+  font-family: "Merriweather", serif;
+  font-family: "Kalnia", serif;
+}
+
+#headline::first-letter {
+  font-size: 3rem;
+  color: rgb(228, 63, 63);
+}
+
+#steam {
+  rotate: 90deg;
+  transform: translateX(-1.2rem) translateY(-0.2rem);
+  position: absolute;
+  pointer-events: none;
+}
+
+.wavy-line {
+  width: 1rem;
+  height: 0.85rem;
+  overflow: hidden;
+  margin: 0 auto 0 auto;
+}
+.wavy-line:before {
+  content: attr(data-text);
+  position: relative;
+  top: -1rem;
+  color: rgba(0, 0, 0, 0);
+  width: calc(100% + 2rem);
+  font-size: 1rem;
+  font-weight: 900;
+  text-decoration-style: wavy;
+  text-decoration-color: #fefeff;
+  text-decoration-line: underline;
+  animation: animate 6s linear infinite;
+  -webkit-animation: animate 6s linear infinite;
+}
+
+.featureCards {
+  margin-top: 2rem;
+  z-index: 5;
+}
+
+@keyframes animate {
+  0% {
+    left: -0px;
+  }
+  100% {
+    left: -30px;
+  }
+}
+@-webkit-keyframes animate {
+  0% {
+    left: -0px;
+  }
+  100% {
+    left: -30px;
+  }
+}

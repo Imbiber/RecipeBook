@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=League+Gothic&family=Libre+Baskerville&family=Merriweather:ital,wght@1,300&display=swap");
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* For Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #36454f;
+  border-radius: 10px;
+  border: 2px solid #36454f;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* For Firefox */
+/* Note: Firefox does not support customization of the scrollbar shape */
+/* You can still change the color and width */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #36454f transparent;
+}
+
+/* For IE and Edge (legacy) */
+/* Note: Edge-Chromium supports the Webkit syntax above */
+/* This is for older versions of Edge and IE */
+*::-ms-scrollbar {
+  width: 8px;
+}
+
+*::-ms-scrollbar-thumb {
+  background-color: #36454f;
+  border-radius: 10px;
+  border: 2px solid #36454f;
+}
+
+*::-ms-scrollbar-track {
+  background-color: transparent;
+}

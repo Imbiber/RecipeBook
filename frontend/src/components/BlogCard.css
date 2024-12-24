@@ -1,0 +1,8 @@
+.blogCardContainer {
+  transition: 0.5s all ease;
+}
+
+.blogCardContainer:hover {
+  cursor: pointer;
+  scale: 1.055;
+}

@@ -1,0 +1,48 @@
+.navcontainer2 {
+  display: flex;
+  justify-content: flex-end;
+  width: calc(100vw - 6rem);
+  padding: 2rem 3rem;
+  font-size: large;
+  font-family: "Cabin Sketch", sans-serif;
+  font-family: "League Gothic", sans-serif;
+  font-family: "Libre Baskerville", serif;
+  font-family: "Merriweather", serif;
+  font-family: "Kalnia", serif;
+}
+
+.navlink2 {
+  list-style: none;
+  margin: auto 10px;
+}
+
+.navlink2 > a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+
+/* Create the sliding underline */
+.navlink2 > a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px; /* Adjust the height of the underline as needed */
+  bottom: 0;
+  left: 0;
+  background-color: #1c1d1e; /* Set the color of the underline */
+  transform: scaleX(0); /* Initially, set the width of the underline to 0 */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* On hover, expand the underline */
+.navlink2 > a:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navlink2 > a:hover {
+  font-weight: bold;
+  transition: font-weight 0.2s ease;
+}

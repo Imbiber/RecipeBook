@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Kalnia:wght@500&family=League+Gothic&family=Libre+Baskerville&family=Merriweather:ital,wght@1,300&display=swap");
+
+.App {
+  text-align: center;
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

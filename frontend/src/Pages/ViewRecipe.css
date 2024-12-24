@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Dancing+Script:wght@700&family=Kalnia:wght@500&family=League+Gothic&family=Libre+Baskerville&family=Merriweather:ital,wght@1,300&family=Pacifico&family=Roboto+Slab&display=swap");
+
+.viewRecipeContainer {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: 1rem;
+}
+
+#recipeContent {
+  text-align: left;
+  font-family: "Roboto Slab", serif;
+}
+
+#recipeRecipe > div > ul li {
+  position: relative;
+  line-height: 1.75;
+}
+
+#username:hover {
+  cursor: pointer;
+}
+
+#usertooltip {
+  display: none;
+  position: absolute;
+  background-color: white;
+  color: black;
+  padding: 0.5rem;
+  border: 2px solid black;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+#recipeInstructions img {
+  aspect-ratio: 1.2;
+  width: 300px;
+}
