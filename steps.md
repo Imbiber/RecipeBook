@@ -51,7 +51,7 @@ npm install
 2. Add the following environment variables:
 ```env
 # MongoDB Atlas Configuration
-MONGO_URI=mongodb+srv://group8:Dmj8zM659sKNjbya@cluster0.jqw3d.mongodb.net/recipebook?retryWrites=true&w=majority
+MONGO_URI=mongodb+srv://dbusername:password@cluster0.jqw3d.mongodb.net/recipebook?retryWrites=true&w=majority
 
 # Hugging Face API Key
 HUGGINGFACE_KEY=<your_hugging_face_api_key>
