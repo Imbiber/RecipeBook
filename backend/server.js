@@ -55,7 +55,7 @@ async function startServer() {
 
     try {
       const imgbbResponse = await fetch(
-        "https://api.imgbb.com/1/upload?" + `key=${process.env.IMGBB_KEY}`,
+        "https://api.imgbb.com/1/upload?expiration=" + `key=${process.env.IMGBB_KEY}`,
         {
           method: "POST",
           headers: {

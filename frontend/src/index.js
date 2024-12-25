@@ -8,11 +8,12 @@ import { SnackbarProvider } from "notistack";
 import { UserProvider } from "./providers/UserProvider";
 import { HelmetProvider } from "react-helmet-async";
 
+const serverURI = process.env.REACT_APP_SERVER_URI || 'http://localhost:4000/graphql';
+
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: serverURI,
   cache: new InMemoryCache(),
 });
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -28,3 +29,8 @@ root.render(
     </HelmetProvider>
   </React.StrictMode>
 );
+
+console.log("Server URI:", serverURI);
+console.log("Environment Variables:", process.env);
+
+

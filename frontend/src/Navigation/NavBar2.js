@@ -12,6 +12,7 @@ import { useUser } from "../providers/UserProvider";
 import { SyncLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 import "./NavBar2.css";
+// import Avatar from '@material-ui/core/Avatar';
 
 export const NavBar2 = () => {
   const { user } = useUser();
