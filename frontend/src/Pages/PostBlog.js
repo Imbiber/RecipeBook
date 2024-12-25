@@ -94,38 +94,45 @@ const PostBlog = () => {
   };
 
   const handleFileChange = async (e) => {
-    const file = e.target.files[0];
-    const base64Image = await convertFileToBase64(file);
-    setFormData({
-      ...formData,
-      thumbnail: base64Image,
-    });
 
-    setThumbnailNameDisplay(file.name);
+    console.log(e);
+//     const file = e.target.files[0];
+//     const base64Image = await convertFileToBase64(file);
+//     setFormData({
+//       ...formData,
+//       thumbnail: base64Image,
+//     });
+
+//     setThumbnailNameDisplay(file.name);
+
+//     console.log("Selected File:", file);
+// console.log("Base64 Image:", base64Image);
+// //console.log("Thumbnail URL:", thumbnailURL);
+// console.log("Updated Form Data:", formData);
+
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+  
     // Process images in the Quill editor
     const quill = quillRef.current.getEditor();
     const delta = quill.getContents();
-
+  
     // Create a copy of formData
     let updatedFormData = { ...formData };
-
-    // Upload images and update the formData
-    const updatedDelta = await processImages(delta);
+  
+    // Commented out the processImages code
+    // const updatedDelta = await processImages(delta);
     updatedFormData.recipe = quill.root.innerHTML;
-
-    // Upload thumbnail and update the formData
-    const thumbnailURL = await uploadImageToImgBB(formData.thumbnail);
-    updatedFormData.thumbnail = thumbnailURL;
-
+  
+    // Commented out the thumbnail upload code
+    // const thumbnailURL = await uploadImageToImgBB(formData.thumbnail);
+    // updatedFormData.thumbnail = thumbnailURL;
+  
     // Update the form data in the state
     setFormData(updatedFormData);
-
+  
     // Submit the form data to the GraphQL API using Apollo Client
     try {
       const response = await addRecipeMutation({
@@ -133,13 +140,13 @@ const PostBlog = () => {
           userId: user.id, // Replace with the actual user ID
           title: updatedFormData.title,
           description: updatedFormData.description,
-          thumbnail: updatedFormData.thumbnail,
+          thumbnail: updatedFormData.thumbnail, // Set a default value if required
           recipe: updatedFormData.recipe,
         },
       });
-
+  
       showSnackbar("Recipe posted successfully!", "success");
-
+  
       // Reset the form after submission
       setFormData({
         title: "",
@@ -152,11 +159,84 @@ const PostBlog = () => {
     } catch (error) {
       showSnackbar("Some Error Occurred!", "error");
       console.error("Error submitting form data to Apollo Client:", error);
+      //form data checking
+      console.log("Variables for addRecipeMutation:", {
+        userId: user.id,
+        title: updatedFormData.title,
+        description: updatedFormData.description,
+        thumbnail: updatedFormData.thumbnail,
+        recipe: updatedFormData.recipe,
+      });
     } finally {
       // Set loading to false after the submission is complete (whether successful or not)
       setLoading(false);
     }
   };
+  
+
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   // Process images in the Quill editor
+  //   const quill = quillRef.current.getEditor();
+  //   const delta = quill.getContents();
+
+  //   // Create a copy of formData
+  //   let updatedFormData = { ...formData };
+
+  //   // Upload images and update the formData
+  //   const updatedDelta = await processImages(delta);
+  //   updatedFormData.recipe = quill.root.innerHTML;
+
+  //   // Upload thumbnail and update the formData
+  //   const thumbnailURL = await uploadImageToImgBB(formData.thumbnail);
+  //   updatedFormData.thumbnail = thumbnailURL;
+
+  //   // Update the form data in the state
+  //   setFormData(updatedFormData);
+
+  //   // Submit the form data to the GraphQL API using Apollo Client
+  //   try {
+  //     const response = await addRecipeMutation({
+  //       variables: {
+  //         userId: user.id, // Replace with the actual user ID
+  //         title: updatedFormData.title,
+  //         description: updatedFormData.description,
+  //         thumbnail: updatedFormData.thumbnail,
+  //         recipe: updatedFormData.recipe,
+  //       },
+  //     });
+
+  //     showSnackbar("Recipe posted successfully!", "success");
+
+  //     // Reset the form after submission
+  //     setFormData({
+  //       title: "",
+  //       thumbnail: "",
+  //       description: "",
+  //       ingredients: "",
+  //       recipe: "",
+  //     });
+  //     setThumbnailNameDisplay("");
+  //   } catch (error) {
+  //     showSnackbar("Some Error Occurred!", "error");
+  //     console.error("Error submitting form data to Apollo Client:", error);
+  //     //form data checking
+  //     console.log("Variables for addRecipeMutation:", {
+  //       userId: user.id,
+  //       title: updatedFormData.title,
+  //       description: updatedFormData.description,
+  //       thumbnail: updatedFormData.thumbnail,
+  //       recipe: updatedFormData.recipe,
+  //     });
+      
+  //   } finally {
+  //     // Set loading to false after the submission is complete (whether successful or not)
+  //     setLoading(false);
+  //   }
+  // };
 
   const handleRecipeChange = (value) => {
     setFormData({
@@ -169,28 +249,56 @@ const PostBlog = () => {
   const uploadImageToImgBB = async (base64Image) => {
     try {
       const imgbbResponse = await axios.post(
-        `${process.env.REACT_APP_SERVER_URI}/upload-to-imgbb`,
+        `https://api.imgbb.com/1/upload?expiration=600&key=${process.env.REACT_APP_IMGBB_KEY}`,
         {
           image: base64Image,
         }
       );
-
-      // Handle the response and return the image URL
+  
       if (
         imgbbResponse.data &&
         imgbbResponse.data.data &&
         imgbbResponse.data.data.url
       ) {
-        return imgbbResponse.data.data.url;
+        return imgbbResponse.data.data.url; // Return the uploaded image URL
       } else {
-        showSnackbar("Some Error Occurred!", "error");
-        // throw new Error("Failed to get image URL from the ImgBB response");
+        throw new Error("Failed to get image URL from ImgBB response");
       }
     } catch (error) {
-      showSnackbar("Some Error Occurred!", "error");
-      // throw new Error("Failed to upload image to ImgBB");
+      console.error("Error in uploadImageToImgBB:", error.message);
+      throw error;
     }
   };
+  
+
+
+  // const uploadImageToImgBB = async (base64Image) => {
+  //   try {
+  //     const imgbbResponse = await axios.post(
+  //       `${process.env.REACT_APP_IMGBB_URI}?key=${process.env.REACT_APP_IMGBB_KEY}`,
+  //       {
+  //         image: base64Image,
+  //       }
+  //     );
+  
+  //     // Handle the response and return the image URL
+  //     if (
+  //       imgbbResponse.data &&
+  //       imgbbResponse.data.data &&
+  //       imgbbResponse.data.data.url
+  //     ) {
+  //       return imgbbResponse.data.data.url;
+  //     } else {
+  //       showSnackbar("Failed to upload image!", "error");
+  //       throw new Error("Failed to get image URL from the ImgBB response");
+  //     }
+  //   } catch (error) {
+  //     showSnackbar("Failed to upload image!", "error");
+  //     console.error("Error in uploadImageToImgBB:", error.message);
+  //     throw error;
+  //   }
+  // };
+  
 
   const processImages = async (delta) => {
     const quill = quillRef.current.getEditor();
@@ -300,7 +408,7 @@ const PostBlog = () => {
                   : "Upload Thumbnail"}
               </p>
             </label>
-            <input type="file" id="file" onChange={handleFileChange} required />
+            <input type="file" id="file" onChange={handleFileChange} />
 
             <Button variant="contained" type="submit">
               {loading ? <BeatLoader color="white" size={8} /> : "Submit"}
@@ -313,3 +421,9 @@ const PostBlog = () => {
 };
 
 export default PostBlog;
+
+
+
+
+
+

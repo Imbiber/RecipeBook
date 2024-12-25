@@ -5,7 +5,7 @@ export const ADD_RECIPE_MUTATION = gql`
     $userId: ID!
     $title: String!
     $description: String!
-    $thumbnail: String!
+    $thumbnail: String
     $recipe: String!
   ) {
     addRecipe(

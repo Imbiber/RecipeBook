@@ -50,7 +50,7 @@ async function startServer() {
   app.post("/upload-to-imgbb", async (req, res) => {
     // console.log(req.body);
     const { image } = req.body;
-    const formData = new FormData();
+    const formData = new FormData();  
     formData.append("image", image);
 
     try {

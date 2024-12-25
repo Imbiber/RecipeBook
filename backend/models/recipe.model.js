@@ -20,7 +20,6 @@ const recipeSchema = new mongoose.Schema({
   },
   thumbnail: {
     type: String,
-    required: true,
   },
   creation_date: {
     type: Date,

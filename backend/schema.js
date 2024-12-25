@@ -17,7 +17,7 @@ const typeDefs = gql`
     title: String!
     description: String!
     recipe: String!
-    thumbnail: String!
+    thumbnail: String
     creation_date: String!
   }
 
@@ -53,8 +53,8 @@ const typeDefs = gql`
       title: String!
       description: String!
       recipe: String!
-      thumbnail: String!
-      creation_data: String
+      thumbnail: String
+      creation_date: String
     ): Recipe!
     addComment(
       user_id: ID!
