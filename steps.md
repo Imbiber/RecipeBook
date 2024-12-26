@@ -242,6 +242,11 @@ mutation {
    - Navigate to the `Collections` tab and show the `users` and `recipes` collections.
 
 ---
+## **7. Outuput**
+<img width="1433" alt="image" src="https://github.com/user-attachments/assets/c75d2058-ca94-42d3-b686-b51c99438ed1" />
 
-With these steps, you are ready to run the project, interact with the data, and deliver an effective presentation!
+<img width="1219" alt="image" src="https://github.com/user-attachments/assets/3729c337-3b35-45be-b71f-a16131caf6e0" />
+
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/8523abe1-29f4-438d-a48f-6255e660a947" />
+
 
