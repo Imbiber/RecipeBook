@@ -8,7 +8,7 @@ import { SnackbarProvider } from "notistack";
 import { UserProvider } from "./providers/UserProvider";
 import { HelmetProvider } from "react-helmet-async";
 
-const serverURI = process.env.REACT_APP_SERVER_URI || 'http://localhost:4000/graphql';
+const serverURI = 'https://recipebook-backend-2.onrender.com/graphql' || 'http://localhost:4000/graphql';
 
 const client = new ApolloClient({
   uri: serverURI,
@@ -31,6 +31,6 @@ root.render(
 );
 
 console.log("Server URI:", serverURI);
-console.log("Environment Variables:", process.env);
+console.log("Environment Variables:", 'https://recipebook-backend-2.onrender.com/graphql');
 
 
